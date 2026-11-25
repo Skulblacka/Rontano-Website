@@ -1,0 +1,5 @@
+.vscode/
+.claude/
+.firebase/
+node_modules/
+*.log

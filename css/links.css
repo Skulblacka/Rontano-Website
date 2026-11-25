@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Anton';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/anton-latin.woff2') format('woff2');
+}
+
+body, html {
+    height: 100%;
+    margin: auto;
+    scroll-behavior: smooth;
+    background-color: rgb(17, 17, 17);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+
+#title {
+    font-family: 'Anton', Impact, 'Arial Black', sans-serif;
+    letter-spacing: 1px;
+    color: #ffc107;
+}
+
+#download a {
+    display: inline-block;
+    background-color: #d32f2f;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#download a:hover {
+    background-color: #ffc107;
+    color: #212121;
+}
+
+  .navbar {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.685);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .navbar a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 40px;
+  }
+  
+  .navbar a:hover {
+    background: #ddd;
+    color: black;
+  }
+
+#download{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}

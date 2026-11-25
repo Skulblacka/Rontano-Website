@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rontano - Rockmusik aus Brandenburg</title>
+    <meta name="description" content="Rontano – Rockmusik aus Oranienburg bei Berlin. Wuchtige Songs mit schwarzem Humor, irgendwo zwischen Zombie-Apokalypse und der Kleingarten-Hölle. Musik, Termine und Kontakt.">
+    <link rel="canonical" href="https://rontano.de/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rontano">
+    <meta property="og:title" content="Rontano - Rockmusik aus Brandenburg">
+    <meta property="og:description" content="Irgendwo zwischen Zombie-Apokalypse und der Kleingarten-Hölle.">
+    <meta property="og:url" content="https://rontano.de/">
+    <meta property="og:image" content="https://rontano.de/images/hero.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/images/favicon_e_gitarre_32px.ico" type="image/x-icon">
+    <link rel="preload" href="/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        /* Schrift „Anton“ (SIL Open Font License) – lokal eingebunden, keine Anfrage an Google Fonts */
+
+        @font-face {
+            font-family: 'Anton';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/fonts/anton-latin.woff2') format('woff2');
+        }
+        /* Lokale SVG-Icons */
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+            vertical-align: -0.125em;
+            box-sizing: content-box;
+            flex-shrink: 0;
+        }
+        /* Globale Stile */
+        
+         :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #212121;
+            --text-color: #333;
+            --light-color: #f8f8f8;
+            --accent-color: #ffc107;
+        }
+        /* Über uns Abschnitt */
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1 1 500px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        
+        .about-image {
+            flex: 1 1 400px;
+            text-align: center;
+        }
+        
+        .about-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header und Navigation */
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'Anton', Impact, 'Arial Black', sans-serif;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        /* Hero-Bereich */
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/hero.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+        /* Für mobile Geräte angepasster Hero-Bereich */
+        
+        @media screen and (max-width: 480px) {
+            .hero {
+                background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/hero-mobile.jpg') center/cover no-repeat;
+                background-position: 45% 20%;
+            }
+            .hero-content h1 {
+                position: absolute;
+                top: 20%;
+                left: 0;
+                width: 100%;
+                font-size: 4.5rem;
+                /* Vergrößert von 3.5rem auf 4.5rem */
+            }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            font-family: 'Anton', Impact, 'Arial Black', sans-serif;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            padding: 5px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero-content p::before,
+        .hero-content p::after {
+            content: "";
+            position: absolute;
+            height: 3px;
+            width: 30%;
+            background-color: var(--accent-color);
+        }
+        
+        .hero-content p::before {
+            top: 0;
+            left: 5%;
+        }
+        
+        .hero-content p::after {
+            bottom: 0;
+            right: 5%;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        /* Band-Bereich */
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .band-section {
+            margin-top: 60px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 40px;
+        }
+        
+        .band-title {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .toggle-arrow {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+        
+        .toggle-arrow .icon {
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: transform 0.3s, color 0.3s;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: rgba(211, 47, 47, 0.1);
+        }
+        
+        .toggle-arrow:hover .icon {
+            color: var(--accent-color);
+            transform: translateY(3px);
+        }
+        
+        .toggle-arrow.active .icon {
+            transform: rotate(180deg);
+        }
+        
+        .band-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.5s, max-height 0.5s;
+        }
+        
+        .band-members.show {
+            opacity: 1;
+            max-height: 2000px;
+            /* Großer Wert, um Platz für alle Inhalte zu haben */
+        }
+        
+        .member {
+            flex: 1 1 250px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .member h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .member p {
+            color: #777;
+        }
+        /* Musik-Bereich */
+        
+        .music {
+            background-color: #222;
+            color: white;
+        }
+        
+        .music .section-title h2 {
+            color: white;
+        }
+        
+        .players-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 0 auto 50px;
+            justify-content: center;
+            max-width: 1100px;
+        }
+        
+        .spotify-container,
+        .youtube-container {
+            flex: 1 1 400px;
+            min-width: 300px;
+            margin-bottom: 0;
+        }
+        
+        .player-wrapper {
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .player-wrapper iframe {
+            width: 100%;
+            display: block;
+            border: none;
+        }
+        
+        .youtube-container .player-wrapper iframe {
+            height: 352px;
+            /* Gleiche Höhe wie Spotify */
+        }
+        /* Platzhalter für externe Player (laden erst nach Klick) */
+
+        .embed-placeholder {
+            width: 100%;
+            min-height: 352px;
+            padding: 30px 25px;
+            background-color: #181818;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            text-align: center;
+        }
+
+        .embed-placeholder .embed-icon {
+            font-size: 44px;
+        }
+
+        .embed-placeholder[data-provider="spotify"] .embed-icon {
+            color: #1DB954;
+        }
+
+        .embed-placeholder[data-provider="youtube"] .embed-icon {
+            color: #FF0000;
+        }
+
+        .embed-placeholder h3 {
+            font-size: 1.2rem;
+        }
+
+        .embed-placeholder p {
+            max-width: 420px;
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        .embed-placeholder .embed-direct {
+            font-size: 0.85rem;
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        .embed-placeholder .embed-direct:hover {
+            color: var(--accent-color);
+        }
+        /* Einwilligungs-Banner für externe Medien */
+
+        .consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            z-index: 1000;
+            transform: translateY(100%);
+            visibility: hidden;
+            transition: transform 0.5s, visibility 0.5s;
+        }
+
+        .consent-banner.show {
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .consent-text {
+            flex: 1 1 300px;
+        }
+
+        .consent-text h3 {
+            margin-bottom: 6px;
+        }
+
+        .consent-text p {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .consent-text a {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .consent-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        /* Beide Schaltflächen bewusst gleich gestaltet */
+
+        .consent-btn {
+            padding: 10px 22px;
+            border: 1px solid white;
+            border-radius: 3px;
+            background-color: transparent;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .consent-btn:hover,
+        .consent-btn:focus-visible {
+            background-color: white;
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 900px) {
+            .spotify-container,
+            .youtube-container {
+                flex: 1 1 100%;
+                width: 100%;
+            }
+            .youtube-container .player-wrapper iframe,
+            .spotify-container .player-wrapper iframe {
+                height: 300px;
+                min-width: 100%;
+            }
+            .player-wrapper {
+                width: 100%;
+                max-width: 100%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .youtube-container .player-wrapper iframe,
+            .spotify-container .player-wrapper iframe {
+                height: 400px;
+                width: 100vw;
+                max-width: 100vw;
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+            .player-wrapper {
+                margin: 0 -10px;
+                max-width: calc(100% + 20px);
+                border-radius: 0;
+            }
+        }
+        
+        .albums {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .album {
+            flex: 1 1 300px;
+            max-width: 300px;
+            margin-bottom: 40px;
+            transition: transform 0.3s;
+        }
+        
+        .album:hover {
+            transform: translateY(-10px);
+        }
+        
+        .album-cover {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .album h3 {
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        
+        .album p {
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+        
+        .album .btn {
+            font-size: 0.9rem;
+            padding: 8px 15px;
+        }
+        /* Tour-Bereich */
+        
+        .tour-dates {
+            list-style: none;
+        }
+        
+        .tour-date {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .tour-date:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .date {
+            font-weight: bold;
+            color: var(--primary-color);
+            min-width: 100px;
+        }
+        
+        .venue {
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+        
+        .venue h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        /* Kontakt-Bereich */
+        
+        .contact {
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        /* Footer */
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .footer-bottom a {
+            color: #ddd;
+            margin: 0 10px;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--accent-color);
+        }
+        /* Mobile Anpassungen für Bandmitglieder */
+        
+        @media screen and (max-width: 768px) {
+            .band-members {
+                gap: 15px;
+            }
+            .member {
+                flex: 1 1 40%;
+                max-width: 45%;
+                margin-bottom: 20px;
+            }
+            .member-img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 10px;
+                border-width: 3px;
+            }
+            .member h3 {
+                font-size: 1rem;
+                margin-bottom: 5px;
+            }
+            .member p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .member {
+                flex: 1 1 45%;
+                max-width: 48%;
+            }
+            .member-img {
+                width: 100px;
+                height: 100px;
+            }
+            .member h3 {
+                font-size: 0.9rem;
+            }
+            .member p {
+                font-size: 0.8rem;
+            }
+        }
+        /* Social Cards im Kontaktbereich */
+        
+        .social-card {
+            background-color: #3b5998;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+            width: 180px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .social-card {
+                width: 80px;
+                padding: 10px;
+            }
+            .social-links {
+                gap: 10px;
+            }
+            .social-card span:last-child {
+                display: none;
+            }
+        }
+        
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            filter: brightness(110%);
+        }
+        
+        .social-facebook {
+            background-color: #3b5998;
+        }
+        
+        .social-instagram {
+            background-color: #C13584;
+        }
+        
+        .social-youtube {
+            background-color: #FF0000;
+        }
+        
+        .social-spotify {
+            background-color: #1DB954;
+        }
+        
+        .social-bandcamp {
+            background-color: #629aa9;
+        }
+        
+        .social-tiktok {
+            background-color: #000000;
+        }
+        /* Datenschutz-Bereich */
+        
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .privacy-content h2 {
+            margin: 30px 0 15px;
+            color: var(--primary-color);
+        }
+        
+        .privacy-content p,
+        .privacy-content ul {
+            margin-bottom: 15px;
+        }
+        
+        .privacy-content ul {
+            padding-left: 20px;
+        }
+        /* Responsive Design */
+        
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                width: 80%;
+                height: calc(100vh - 70px);
+                text-align: center;
+                transition: right 0.5s;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .nav-menu li {
+                margin: 25px 0;
+            }
+            .burger {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 4.5rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .date {
+                min-width: auto;
+            }
+            .tour-date {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Icons: Font Awesome Free 6 (https://fontawesome.com), Lizenz CC BY 4.0 – lokal eingebunden -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+        <symbol id="i-chevron-down" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></symbol>
+        <symbol id="i-envelope" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol>
+        <symbol id="i-download" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></symbol>
+        <symbol id="i-facebook-f" viewBox="0 0 320 512"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></symbol>
+        <symbol id="i-instagram" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></symbol>
+        <symbol id="i-youtube" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></symbol>
+        <symbol id="i-spotify" viewBox="0 0 496 512"><path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/></symbol>
+        <symbol id="i-bandcamp" viewBox="0 0 512 512"><path d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm48.2,326.1h-181L207.9,178h181Z"/></symbol>
+        <symbol id="i-tiktok" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></symbol>
+    </svg>
+
+    <!-- Header und Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">RONTANO</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#music">Musik</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#tour">Hier Spielen Wir</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero-Bereich -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>RONTANO</h1>
+            <!-- <p>Irgendwo zwischen Zombie-Apokalypse, Kleingarten-Hölle und dem Niedergang der Zivilisation in seiner schönsten Form </p> -->
+            <p>Irgendwo zwischen Zombie-Apokalypse und der Kleingarten-Hölle</p>
+            <a href="#music" class="btn">Unsere Musik</a>
+        </div>
+    </section>
+
+    <!-- Musik-Bereich -->
+    <section class="section music" id="music">
+        <div class="container">
+            <div class="section-title">
+                <h2>Unsere Musik</h2>
+            </div>
+
+            <div class="players-wrapper">
+                <div class="spotify-container">
+                    <div class="player-wrapper">
+                        <!-- Der Player wird erst nach Klick geladen (siehe Skript „Externe Player“) -->
+                        <div class="embed-placeholder" data-provider="spotify" data-src="https://open.spotify.com/embed/artist/1wgYAkNNGbFivZ3FtIPRtu" data-title="Rontano auf Spotify" data-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                            <svg class="icon embed-icon" aria-hidden="true"><use href="#i-spotify"/></svg>
+                            <h3>Rontano auf Spotify</h3>
+                            <p>Beim Laden des Players werden Daten (z.&nbsp;B. deine IP-Adresse) an Spotify übertragen.</p>
+                            <button type="button" class="btn embed-load">Spotify-Player laden</button>
+                            <a class="embed-direct" href="https://open.spotify.com/artist/1wgYAkNNGbFivZ3FtIPRtu" target="_blank" rel="noopener">Lieber direkt bei Spotify öffnen</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="youtube-container">
+                    <div class="player-wrapper">
+                        <div class="embed-placeholder" data-provider="youtube" data-src="https://www.youtube-nocookie.com/embed/eVqSvakdBPA" data-title="Rontano - Stroboskop" data-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                            <svg class="icon embed-icon" aria-hidden="true"><use href="#i-youtube"/></svg>
+                            <h3>Musikvideo „Stroboskop“</h3>
+                            <p>Beim Laden des Videos werden Daten (z.&nbsp;B. deine IP-Adresse) an YouTube übertragen.</p>
+                            <button type="button" class="btn embed-load">YouTube-Video laden</button>
+                            <a class="embed-direct" href="https://www.youtube.com/watch?v=eVqSvakdBPA" target="_blank" rel="noopener">Lieber direkt bei YouTube öffnen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="albums">
+                <div class="album">
+                    <img src="images/zahnrad_cover.jpg" alt="Cover der Single „Zahnrad“" class="album-cover" width="300" height="300" loading="lazy">
+                    <h3>Zahnrad</h3>
+                    <p>2025 | Single</p>
+                    <p>Unsere aktuelle Single.</p>
+                    <a href="https://open.spotify.com/album/7wJirEwIGsqV34lypAe5UC" class="btn" target="_blank" rel="noopener">Anhören</a>
+                </div>
+                <div class="album">
+                    <img src="images/monster_cover.jpg" alt="Cover der Single „Monster“" class="album-cover" width="300" height="300" loading="lazy">
+                    <h3>Monster</h3>
+                    <p>2025 | Single</p>
+                    <a href="https://open.spotify.com/album/1qEHatYrXW8pTFnIkwCWDo" class="btn" target="_blank" rel="noopener">Anhören</a>
+                </div>
+                <div class="album">
+                    <img src="images/eskalieren_cover.jpg" alt="Cover der Single „Eskalieren im Büro“" class="album-cover" width="300" height="300" loading="lazy">
+                    <h3>Eskalieren im Büro</h3>
+                    <p>2025 | Single</p>
+                    <a href="https://open.spotify.com/album/76781U2yw5q3BmSjrqJb19" class="btn" target="_blank" rel="noopener">Anhören</a>
+                </div>
+                <div class="album">
+                    <img src="images/HausBrennt_cover.jpg" alt="Cover des Albums „Das Haus brennt“" class="album-cover" width="300" height="300" loading="lazy">
+                    <h3>Das Haus brennt</h3>
+                    <p>2023 | 12 Songs</p>
+                    <p>Unser im Keller aufgenommenes Debütalbum mit kraftvollen Rocksongs und ironischen Texten über das Leben in all seinen Facetten.</p>
+                    <a href="https://open.spotify.com/album/2oYtdbZKQj0gHbVOgd3pEx" class="btn" target="_blank" rel="noopener">Anhören</a>
+                </div>
+                <div class="album">
+                    <img src="images/dosis_cover.jpg" alt="Cover der Single „Dosis“" class="album-cover" width="300" height="300" loading="lazy">
+                    <h3>Dosis</h3>
+                    <p>2023 | Single</p>
+                    <p>Zu diesem Song existiert auch ein Musikvideo auf YouTube.</p>
+                    <a href="https://www.youtube.com/watch?v=QkIeiw0ji9Y" class="btn" target="_blank" rel="noopener">Ansehen</a>
+                </div>
+                <div class="album">
+                    <img src="images/vamirella_cover.jpg" alt="Cover der Single „Vampirella“" class="album-cover" width="300" height="300" loading="lazy">
+                    <h3>Vampirella</h3>
+                    <p>2023 | Single</p>
+                    <p>Der Song, der in keiner unserer Setlists fehlt.</p>
+                    <a href="https://open.spotify.com/album/6tcIeDpio4PbfucwtJeYEH" class="btn" target="_blank" rel="noopener">Anhören</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über uns Bereich -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Über uns</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Rontano nehmen ihr Publikum mit in Lieder voller Gegensätze, die einerseits in den verlorenen Weiten Brandenburgs zwischen Hoffnung und unerfüllten Träumen spielen, andererseits die immer greifbare, pulsierende Hauptstadt mit ihren
+                        nächtlichen Exzessen und dem gelebten Ruin in den Mittelpunkt stellt.</p>
+
+                    <p>Wuchtige Rock-Songs zwischen Einfamilienhaus-Hölle mit marodierenden Nachbarn und dem Großstadt-Moloch, in dem sich die hedonistische Jugend und die Unterwelt begegnen. Mit nachdenklichen Texten voller schwarzem Humor liefern sie den
+                        Soundtrack zum aktuellen Zeitgefühl.</p>
+
+                    <p>2022 veröffentlichten sie ihre erste EP „So verloren" und erspielten sich ihre Fangemeinde. Im März 2023 folgte das erste Album „Das Haus brennt"</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/ueberuns.jpg" alt="Rontano Band" class="about-img">
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <div style="display: flex; align-items: center;">
+                    <h3 style="text-align: left; color: #777; margin-bottom: 0; margin-right: 10px;">Mehr Erfahren</h3>
+                    <div class="toggle-arrow" style="margin: 0; justify-content: flex-start;">
+                        <svg class="icon" aria-hidden="true" style="font-size: 16px; padding: 6px;"><use href="#i-chevron-down"/></svg>
+                    </div>
+                </div>
+
+                <div class="band-members" id="bandMembers" style="display: none; text-align: center; margin-top: 30px;">
+                    <div class="member">
+                        <img src="/images/homer.png" alt="Bandmitglied 1" class="member-img">
+                        <h3>Ronald Bergner</h3>
+                        <p>Gesang & Gitarre & Text</p>
+                    </div>
+                    <div class="member">
+                        <img src="/images/lisa.webp" alt="Bandmitglied 2" class="member-img">
+                        <h3>Tabea Lebrecht</h3>
+                        <p>Bass & Gesang</p>
+                    </div>
+                    <div class="member">
+                        <img src="/images/otto.jfif" alt="Bandmitglied 3" class="member-img">
+                        <h3>Vincent Nowak</h3>
+                        <p>Schlagzeug & Gesang</p>
+                    </div>
+                    <div class="member">
+                        <img src="/images/frink.jpg" alt="Bandmitglied 4" class="member-img">
+                        <h3>Tilmann Paczoch</h3>
+                        <p>Gitarre & Gesang</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour-Bereich -->
+    <section class="section" id="tour">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hier Spielen Wir</h2>
+            </div>
+            <!-- Vorlage für einen Termin:
+                <li class="tour-date">
+                    <div class="date">TT.MM.JJJJ</div>
+                    <div class="venue">
+                        <h3>Name der Veranstaltung</h3>
+                        <p>Ort, Bundesland</p>
+                    </div>
+                    <a href="https://..." class="btn" target="_blank" rel="noopener">Zur Veranstaltung</a>
+                </li>
+            -->
+            <ul class="tour-dates">
+                <li class="tour-date">
+                    <div class="venue">
+                        <h3>Weitere Termine folgen</h3>
+                        <p>Neue Konzerte in Kürze. In der Zwischenzeit kannst du dir unsere neuen Songs auf Spotify anhören.</p>
+                    </div>
+                    <a href="https://open.spotify.com/artist/1wgYAkNNGbFivZ3FtIPRtu" class="btn" target="_blank" rel="noopener">Hier entlang</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Kontakt-Bereich -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontakt</h2>
+            </div>
+            <div class="contact-container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Schreib uns!</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 15px;">Du hast Fragen, Bookings oder willst einfach Hallo sagen?</p>
+                    <a href="mailto:rontano.band@gmail.com" class="btn" style="font-size: 1.2rem; margin-top: 10px;">
+                        <svg class="icon" aria-hidden="true" style="margin-right: 10px;"><use href="#i-envelope"/></svg>rontano.band@gmail.com
+                    </a>
+                </div>
+
+                <div style="margin-top: 50px;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 30px;">Folge uns</h3>
+                    <div class="social-links" style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+                        <a href="https://www.facebook.com/p/Rontano-100057071786894/?locale=de_DE" class="social-card social-facebook"> <svg class="icon" aria-hidden="true" style="font-size: 30px; margin-bottom: 15px;"><use href="#i-facebook-f"/></svg> <span style="font-weight: bold;">Facebook</span> <span style="font-size: 0.8rem; margin-top: 5px;">News & Events</span> </a>
+                        <a href="https://www.instagram.com/rontano.band/" class="social-card social-instagram"> <svg class="icon" aria-hidden="true" style="font-size: 30px; margin-bottom: 15px;"><use href="#i-instagram"/></svg> <span style="font-weight: bold;">Instagram</span> <span style="font-size: 0.8rem; margin-top: 5px;">Bilder & Stories</span> </a>
+                        <a href="https://www.youtube.com/channel/UCP1RoGg4ZwIONhoND0AuynQ" class="social-card social-youtube"> <svg class="icon" aria-hidden="true" style="font-size: 30px; margin-bottom: 15px;"><use href="#i-youtube"/></svg> <span style="font-weight: bold;">YouTube</span> <span style="font-size: 0.8rem; margin-top: 5px;">Videos & Live</span> </a>
+                        <a href="https://open.spotify.com/artist/1wgYAkNNGbFivZ3FtIPRtu" class="social-card social-spotify"> <svg class="icon" aria-hidden="true" style="font-size: 30px; margin-bottom: 15px;"><use href="#i-spotify"/></svg> <span style="font-weight: bold;">Spotify</span> <span style="font-size: 0.8rem; margin-top: 5px;">Musik streamen</span> </a>
+                        <a href="https://rontano.bandcamp.com/album/das-haus-brennt" class="social-card social-bandcamp"> <svg class="icon" aria-hidden="true" style="font-size: 30px; margin-bottom: 15px;"><use href="#i-bandcamp"/></svg> <span style="font-weight: bold;">Bandcamp</span> <span style="font-size: 0.8rem; margin-top: 5px;">Songtexte</span> </a>
+                        <a href="https://www.tiktok.com/@rontano.band" class="social-card social-tiktok"> <svg class="icon" aria-hidden="true" style="font-size: 30px; margin-bottom: 15px;"><use href="#i-tiktok"/></svg> <span style="font-weight: bold;">TikTok</span> <span style="font-size: 0.8rem; margin-top: 5px;">Kurze Videos</span> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RONTANO</h3>
+                    <p>Rontano - Rockmusik aus Brandenburg</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>rontano.band@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> Rontano. Alle Rechte vorbehalten.</p>
+                <div>
+                    <a href="#" id="privacy-link">Datenschutz</a>
+                    <a href="#" id="imprint-link">Impressum</a>
+                    <a href="#" id="consent-settings-link">Cookie-Einstellungen</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Einwilligungs-Banner für externe Medien (Spotify / YouTube) -->
+    <div class="consent-banner" id="consentBanner" role="dialog" aria-labelledby="consentTitle">
+        <div class="consent-text">
+            <h3 id="consentTitle">Externe Medien &amp; Cookies</h3>
+            <p>Wir binden Player von Spotify und YouTube ein. Wenn du zustimmst, werden sie direkt geladen; dabei werden Daten (z.&nbsp;B. deine IP-Adresse) an diese Anbieter übertragen, und sie können Cookies setzen. Die Seite selbst funktioniert
+                auch ohne. Mehr dazu in der <a href="#" id="consent-privacy-link">Datenschutzerklärung</a>.</p>
+        </div>
+        <div class="consent-buttons">
+            <button type="button" class="consent-btn" id="consentAccept">Akzeptieren</button>
+            <button type="button" class="consent-btn" id="consentDecline">Ablehnen</button>
+        </div>
+    </div>
+
+    <!-- Datenschutz-Bereich (wird dynamisch angezeigt) -->
+    <div id="privacy-section" style="display: none;">
+        <div class="privacy-content">
+            <h1>Datenschutzerklärung</h1>
+            <p>Stand: November 2026</p>
+
+            <h2>1. Verantwortliche Stelle</h2>
+            <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
+            <p> Tilmann Paczoch<br> Stralsunder Straße 8<br> 16515 Oranienburg<br> Deutschland <br> E-Mail: rontano.band@gmail.com </p>
+
+            <h2>2. Grundsätzliches</h2>
+            <p>Diese Website ist eine reine Informationsseite über die Band Rontano. Wir setzen keine Analyse- oder Marketing-Werkzeuge ein, betreiben kein Tracking und setzen selbst keine Cookies. Schriftarten und Icons werden von unserem eigenen Webspace geladen;
+                dabei entsteht keine Verbindung zu Servern Dritter.</p>
+
+            <h2>3. Hosting mit Firebase</h2>
+            <p>Unsere Website wird über Firebase Hosting bereitgestellt, einen Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Beim Aufruf der Seite verarbeitet der Anbieter technisch notwendige Zugriffsdaten (z.&nbsp;B. IP-Adresse,
+                Datum und Uhrzeit des Abrufs, aufgerufene Datei, Browsertyp), um die Website auszuliefern und ihre Sicherheit zu gewährleisten. Eine Übermittlung in die USA ist dabei nicht ausgeschlossen. Rechtsgrundlage ist unser berechtigtes Interesse
+                an einer sicheren und zuverlässigen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Weitere Informationen: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">https://firebase.google.com/support/privacy</a></p>
+
+            <h2>4. Eingebettete Player von Spotify und YouTube</h2>
+            <p>Im Bereich „Unsere Musik“ können Sie einen Player von Spotify (Spotify AB, Regeringsgatan 19, 111 53 Stockholm, Schweden) und ein Video von YouTube (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) abspielen. Diese
+                Inhalte werden erst geladen, wenn Sie im Einwilligungs-Banner auf „Akzeptieren“ oder beim jeweiligen Player auf die Lade-Schaltfläche klicken. Erst dann wird eine Verbindung zu den Servern des Anbieters aufgebaut, wobei unter anderem Ihre IP-Adresse übertragen wird und der Anbieter eigene Cookies
+                setzen oder vergleichbare Techniken einsetzen kann. Das YouTube-Video binden wir im erweiterten Datenschutzmodus (youtube-nocookie.com) ein. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG).</p>
+            <p>Damit wir Sie nicht bei jedem Besuch erneut fragen müssen, speichern wir Ihre Entscheidung (Zustimmung oder Ablehnung) im lokalen Speicher Ihres Browsers (Local Storage). Diese Information verbleibt auf Ihrem Gerät und wird nicht an
+                uns übertragen. Über den Link „Cookie-Einstellungen“ am Seitenende können Sie den Banner jederzeit erneut aufrufen. Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen:</p>
+            <p><button type="button" class="btn" id="revoke-embeds">Einwilligung für Spotify und YouTube widerrufen</button> <span id="revoke-status" role="status" style="margin-left: 10px;"></span></p>
+            <p>Datenschutzhinweise der Anbieter: <a href="https://www.spotify.com/de/legal/privacy-policy/" target="_blank" rel="noopener">Spotify</a>, <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">Google/YouTube</a>.</p>
+
+            <h2>5. Kontaktaufnahme per E-Mail</h2>
+            <p>Wenn Sie uns per E-Mail schreiben, verarbeiten wir Ihre Angaben (E-Mail-Adresse, Name und Inhalt der Nachricht), um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um Anfragen zu Auftritten oder
+                Buchungen geht, im Übrigen unser berechtigtes Interesse an der Beantwortung von Anfragen (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden gelöscht, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten
+                bestehen.</p>
+
+            <h2>6. Links zu anderen Plattformen</h2>
+            <p>Unsere Seite enthält einfache Links zu unseren Profilen bei Facebook, Instagram, YouTube, Spotify, Bandcamp und TikTok. Daten werden erst an diese Anbieter übertragen, wenn Sie einen solchen Link anklicken. Für die Datenverarbeitung auf
+                den verlinkten Plattformen ist der jeweilige Anbieter verantwortlich.</p>
+
+            <h2>7. Ihre Rechte</h2>
+            <p>Sie haben jederzeit das Recht auf:</p>
+            <ul>
+                <li>Auskunft über Ihre gespeicherten personenbezogenen Daten</li>
+                <li>Berichtigung unrichtiger Daten</li>
+                <li>Löschung Ihrer Daten</li>
+                <li>Einschränkung der Verarbeitung</li>
+                <li>Datenübertragbarkeit</li>
+                <li>Widerspruch gegen die Verarbeitung</li>
+                <li>Widerruf erteilter Einwilligungen</li>
+            </ul>
+            <p>Um diese Rechte wahrzunehmen, kontaktieren Sie uns bitte unter rontano.band@gmail.com. Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, zum Beispiel bei der Landesbeauftragten für den Datenschutz
+                und für das Recht auf Akteneinsicht Brandenburg.</p>
+
+            <h2>8. Änderungen der Datenschutzerklärung</h2>
+            <p>Wir behalten uns vor, diese Datenschutzerklärung gelegentlich anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht.</p>
+
+            <a href="#" id="back-from-privacy" class="btn">Zurück zur Website</a>
+        </div>
+    </div>
+
+    <!-- Impressum-Bereich (wird dynamisch angezeigt) -->
+    <div id="imprint-section" style="display: none;">
+        <div class="privacy-content">
+            <h1>Impressum</h1>
+            <p>Stand: November 2026</p>
+
+            <h2>Angaben gemäß § 5 DDG</h2>
+            <p>
+                Tilmann Paczoch<br> Stralsunder Str. 8<br> 16515 Oranienburg<br> Deutschland
+            </p>
+
+
+            <h2>Kontakt</h2>
+            <p>
+                E-Mail: rontano.band@gmail.com
+            </p>
+
+            <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+            <p>
+                Tilmann Paczoch<br> Stralsunder Str. 8<br> 16515 Oranienburg<br> Deutschland
+            </p>
+
+            <h2>Streitschlichtung</h2>
+            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <h2>Haftung für Inhalte</h2>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte
+                fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+            <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung
+                möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+            <h2>Haftung für Links</h2>
+            <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+                Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+
+            <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+
+            <h2>Urheberrecht</h2>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen
+                der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+
+            <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam
+                werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+
+            <button id="imprint-back" class="btn">Zurück zur Website</button>
+        </div>
+    </div>
+
+    <!-- Technik Rider Bereich (wird dynamisch angezeigt) -->
+    <div id="technik-section" style="display: none;">
+        <div class="privacy-content" style="text-align: center; max-width: 800px;">
+            <div class="logo" style="color: var(--primary-color); font-size: 2.5rem; font-weight: 700; font-family: 'Anton', Impact, 'Arial Black', sans-serif; margin-bottom: 20px;">RONTANO</div>
+            <img src="images/ueberuns.jpg" alt="Rontano Band" style="max-width: 100%; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+            <h1>Technik Rider</h1>
+            <p style="font-size: 1.1rem; margin-bottom: 30px; color: #555;">Hier findet ihr alle technischen Anforderungen für unsere Live-Auftritte. Bei Fragen kontaktiert uns gerne direkt unter <a href="mailto:rontano.band@gmail.com">rontano.band@gmail.com</a></p>
+            <a href="res/Technik-Rider.pdf" download class="btn" style="display: inline-block; padding: 15px 30px; font-size: 1.1rem; margin-bottom: 20px;">
+                <svg class="icon" aria-hidden="true" style="margin-right: 10px;"><use href="#i-download"/></svg>Technik Rider herunterladen
+            </a>
+            <p style="margin-bottom: 30px;"><small>Letztes Update: März 2025</small></p>
+            <button id="technik-back" class="btn">Zurück zur Website</button>
+        </div>
+    </div>
+
+    <script>
+        // Jahreszahl im Footer aktuell halten
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Navigation
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-menu');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+
+            // Animation für Burger-Menü
+            burger.classList.toggle('toggle');
+        });
+
+        // Navigation Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Mobile-Menü schließen, wenn es geöffnet ist
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                    }
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Externe Player (Spotify / YouTube): laden erst nach Klick.
+        // Die Entscheidung wird nur lokal im Browser gespeichert (Local Storage).
+        const EMBED_KEY = 'rontano-embed-';
+        const CONSENT_KEY = 'rontano-consent'; // 'accepted' oder 'declined'
+        const PROVIDERS = ['spotify', 'youtube'];
+
+        function storeGet(key) {
+            try {
+                return localStorage.getItem(key);
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function storeSet(key, value) {
+            try {
+                localStorage.setItem(key, value);
+            } catch (e) {
+                // Ohne Local Storage gilt die Entscheidung nur für diesen Seitenaufruf
+            }
+        }
+
+        function storeRemove(key) {
+            try {
+                localStorage.removeItem(key);
+            } catch (e) {
+                // nichts gespeichert
+            }
+        }
+
+        function embedAllowed(provider) {
+            return storeGet(EMBED_KEY + provider) === '1';
+        }
+
+        const loadedEmbeds = [];
+
+        function loadEmbeds(provider) {
+            document.querySelectorAll('.embed-placeholder[data-provider="' + provider + '"]').forEach(function(placeholder) {
+                const iframe = document.createElement('iframe');
+                iframe.src = placeholder.dataset.src;
+                iframe.title = placeholder.dataset.title;
+                iframe.allow = placeholder.dataset.allow;
+                iframe.height = 352;
+                iframe.loading = 'lazy';
+                iframe.setAttribute('allowfullscreen', '');
+                placeholder.replaceWith(iframe);
+                loadedEmbeds.push({
+                    iframe: iframe,
+                    placeholder: placeholder
+                });
+            });
+        }
+
+        // Geladene Player wieder durch ihre Platzhalter ersetzen (bei Ablehnung/Widerruf)
+        function unloadEmbeds() {
+            loadedEmbeds.splice(0).forEach(function(entry) {
+                entry.iframe.replaceWith(entry.placeholder);
+            });
+        }
+
+        function revokeEmbedConsent() {
+            PROVIDERS.forEach(function(provider) {
+                storeRemove(EMBED_KEY + provider);
+            });
+            unloadEmbeds();
+        }
+
+        document.querySelectorAll('.embed-placeholder').forEach(function(placeholder) {
+            const provider = placeholder.dataset.provider;
+            placeholder.querySelector('.embed-load').addEventListener('click', function() {
+                storeSet(EMBED_KEY + provider, '1');
+                loadEmbeds(provider);
+            });
+        });
+
+        PROVIDERS.filter(embedAllowed).forEach(loadEmbeds);
+
+        // Einwilligungs-Banner: erscheint, solange noch keine Entscheidung gespeichert ist
+        const consentBanner = document.getElementById('consentBanner');
+
+        document.getElementById('consentAccept').addEventListener('click', function() {
+            storeSet(CONSENT_KEY, 'accepted');
+            PROVIDERS.forEach(function(provider) {
+                storeSet(EMBED_KEY + provider, '1');
+                loadEmbeds(provider);
+            });
+            consentBanner.classList.remove('show');
+        });
+
+        document.getElementById('consentDecline').addEventListener('click', function() {
+            storeSet(CONSENT_KEY, 'declined');
+            revokeEmbedConsent();
+            consentBanner.classList.remove('show');
+        });
+
+        if (!storeGet(CONSENT_KEY) && !PROVIDERS.every(embedAllowed)) {
+            setTimeout(function() {
+                consentBanner.classList.add('show');
+            }, 800);
+        }
+
+        // Banner über den Footer-Link erneut öffnen
+        document.getElementById('consent-settings-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            consentBanner.classList.add('show');
+        });
+
+        // Link im Banner zur Datenschutzerklärung
+        document.getElementById('consent-privacy-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('privacy-link').click();
+        });
+
+        // Widerruf der Einwilligung (Schaltfläche in der Datenschutzerklärung)
+        document.getElementById('revoke-embeds').addEventListener('click', function() {
+            storeRemove(CONSENT_KEY);
+            revokeEmbedConsent();
+            document.getElementById('revoke-status').textContent = 'Widerrufen – die Player wurden entfernt. Beim nächsten Seitenaufruf fragen wir erneut.';
+        });
+
+        // Bandmitglieder-Toggle
+        const toggleArrow = document.querySelector('.toggle-arrow');
+        const bandMembers = document.getElementById('bandMembers');
+
+        if (toggleArrow && bandMembers) {
+            toggleArrow.addEventListener('click', function() {
+                this.classList.toggle('active');
+
+                if (bandMembers.classList.contains('show')) {
+                    bandMembers.classList.remove('show');
+                    setTimeout(() => {
+                        bandMembers.style.display = 'none';
+                    }, 500); // Zeit für Animation
+                } else {
+                    bandMembers.style.display = 'flex';
+                    // Kurze Verzögerung, damit display: flex angewendet wird, bevor die Animation startet
+                    setTimeout(() => {
+                        bandMembers.classList.add('show');
+                    }, 10);
+                }
+            });
+        }
+
+        // Datenschutz und Impressum
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elemente finden
+            const privacyLink = document.getElementById('privacy-link');
+            const privacySection = document.getElementById('privacy-section');
+            const backFromPrivacyButton = document.getElementById('back-from-privacy');
+            const imprintLink = document.getElementById('imprint-link');
+            const imprintSection = document.getElementById('imprint-section');
+            const imprintBack = document.getElementById('imprint-back');
+            const technikSection = document.getElementById('technik-section');
+            const technikBack = document.getElementById('technik-back');
+
+            // Hauptsektionen
+            const mainSections = document.querySelectorAll('section');
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+
+            // Prüfen, ob der URL-Parameter "technik=true" vorhanden ist
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('technik') === 'true') {
+                showTechnikSection();
+            }
+
+            function hideAllSections() {
+                // Alles ausblenden
+                mainSections.forEach(function(section) {
+                    section.style.display = 'none';
+                });
+                header.style.display = 'none';
+                footer.style.display = 'none';
+                privacySection.style.display = 'none';
+                imprintSection.style.display = 'none';
+                technikSection.style.display = 'none';
+            }
+
+            function showMainContent() {
+                // Alles wieder einblenden
+                mainSections.forEach(function(section) {
+                    section.style.display = '';
+                });
+                header.style.display = '';
+                footer.style.display = '';
+            }
+
+            function showTechnikSection() {
+                hideAllSections();
+                technikSection.style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+
+            // Datenschutz anzeigen
+            privacyLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideAllSections();
+                privacySection.style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+
+            // Zurück von Datenschutz
+            backFromPrivacyButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                privacySection.style.display = 'none';
+                showMainContent();
+            });
+
+            // Impressum anzeigen
+            imprintLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideAllSections();
+                imprintSection.style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+
+            // Zurück von Impressum
+            imprintBack.addEventListener('click', function() {
+                imprintSection.style.display = 'none';
+                showMainContent();
+            });
+
+            // Zurück von Technik Rider
+            if (technikBack) {
+                technikBack.addEventListener('click', function() {
+                    technikSection.style.display = 'none';
+                    showMainContent();
+                    // URL ändern ohne Seite neu zu laden
+                    history.pushState({}, '', '/');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

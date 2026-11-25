@@ -1,0 +1,357 @@
+:target {
+    scroll-margin-top: 150px;
+}
+
+body,
+html {
+    height: 100%;
+    margin: auto;
+    scroll-behavior: smooth;
+    background-color: rgb(17, 17, 17);
+}
+
+.parallax {
+    /* The image used */
+    /* background-image: url('/assets/bandfoto.jpg'); */
+    background-image: url('/assets/bandfoto.jpeg');
+    /* Full height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#background_dark {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.685);
+}
+
+span {
+    margin-top: 50px;
+}
+
+#secondBackground {
+    position: absolute;
+    top: 100%;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#secondBackground img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    /* background-size: cover; */
+    z-index: -1;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.685);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    z-index: 2;
+}
+
+.navbar a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+
+#background_dark img {
+    /* position: absolute; */
+    margin-top: -15%;
+    /* left: 25%; */
+    z-index: -1;
+    width: 50%;
+    /*     height: 100%;
+ */
+    /*  min-width: 807px;
+    min-height: 400px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*     min-width: 100%;
+    min-height: 100%; */
+}
+
+#socialmedia {
+    /* list-style: none; */
+    color: white;
+    margin-top: -20%;
+    text-align: center;
+    display: block;
+    z-index: 6;
+}
+
+#socialmedia a,
+a:visited {
+    color: white;
+    box-sizing: content-box;
+    text-decoration-color: transparent;
+    z-index: 6;
+}
+
+#socialmedia a:hover {
+    color: rgb(183, 220, 255);
+}
+
+#socialmedia a {
+    margin: 50px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    color: white;
+    z-index: 6;
+}
+
+
+/*  #main ul{
+  padding: 0px 10px 0px 0px;
+ } */
+
+#main li {
+    display: inline-block;
+    *display: inline;
+    /* margin-block-end: 20em; */
+}
+
+#main {
+    list-style: center;
+    text-align: center;
+    /* padding: 0px 0px 0px 40px; */
+}
+
+#spotify_youtube {
+    margin-top: -2%;
+    list-style: none;
+    list-style-type: none;
+    text-align: center;
+    /* padding: 0px 0px 0px 40px; */
+    list-style-type: none;
+}
+
+#spotify_youtube li {
+    /* margin: 50px 0; */
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    /* padding-inline-start: 40px; */
+    padding: 0px 40px 0px 0px;
+    color: white
+}
+
+ul #spotify_youtube {
+    padding: 0px
+}
+
+iframe {
+    width: 600px;
+    height: 352px;
+    border-radius: 5%;
+}
+
+#title {
+    font-family: 'Amatic SC', fantasy;
+    font-size: 60px;
+    color: #f2f2f2;
+}
+
+#content {
+    font-size: 30px;
+    color: #f2f2f2;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#content_email {
+    font-size: 30px;
+    color: #f2f2f2;
+    /*   margin-left: 5%;
+  margin-right: 5%;  
+  margin-top: -2%;
+  margin-bottom: 5%; */
+}
+
+.bar {
+    height: 5px;
+    width: 90%;
+    background-color: #f2f2f2;
+    margin-top: -20px;
+    margin-left: 5%;
+}
+
+#footer {
+    margin-top: -10px;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    /* Footer height */
+    background-color: rgb(17, 17, 17)
+}
+
+#grid {
+    width: 50%;
+    /* margin-left: 27%; */
+    /*     position: absolute;
+ */
+    display: grid;
+    border-radius: 20px;
+    z-index: 1;
+    text-align: center;
+    display: inline-block;
+    padding: 0px 40px 0px 0px;
+}
+
+#band {
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.685);
+    width: 100%;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+#booking {
+    margin-top: 15px;
+    background-color: rgba(0, 0, 0, 0.685);
+    grid-row: 2 / 4;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+
+/*   ul{
+    padding: 0;
+    list-style-type: none;
+   } */
+
+@media only screen and (max-width:800px) {
+    .parallax {
+        /* The image used */
+        background-image: url('/assets/bandfoto_mobile.jpeg');
+    }
+    .fa-3x {
+        font-size: 2em !important;
+    }
+    #main li {
+        display: inline-block;
+        *display: inline;
+    }
+    #main {
+        list-style: center;
+        text-align: center;
+        /* padding: 0px 0px 0px 0px;    */
+    }
+    #title {
+        font-family: 'Amatic SC', fantasy;
+        font-size: 30px;
+        color: #f2f2f2;
+    }
+    #socialmedia a {
+        margin: 10px;
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        color: white;
+        z-index: 6;
+    }
+    #spotify_youtube {
+        margin-top: -2%;
+        list-style: none;
+        text-align: center;
+    }
+    /*     #spotify_youtube li{  
+    
+      display: inline-block;
+      zoom: 1;
+      *display: inline;
+      padding: 0px 80px 0px 0px;
+      color: white
+    } */
+    /*     iframe{
+      width: 300px;
+      height: 152px;
+      border-radius: 5%;
+    } */
+    #spotify_youtube li {
+        /* width: 100%; */
+        /* margin: 50px 0; */
+        height: 170px;
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        /* padding-inline-start: 40px; */
+        /* padding: 0px 40px 0px 0px !important; */
+        color: white
+    }
+    iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 5%;
+    }
+    #grid {
+        top: 130%;
+        width: 70%;
+        display: inline-block;
+        border-radius: 20px;
+        z-index: 1;
+        text-align: center;
+        padding: 0px 40px 0px 0px;
+    }
+    #band {
+        margin-top: 15px;
+        background-color: rgba(0, 0, 0, 0.685);
+        width: 100%;
+        border-radius: 20px;
+        display: inline-block;
+    }
+    #content {
+        font-size: 10px;
+        color: #f2f2f2;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    #content_email {
+        font-size: 10px;
+        color: #f2f2f2;
+        /*       margin-left: 5%;
+      margin-right: 5%;  
+      margin-top: -5%;
+      margin-bottom: 5%; */
+    }
+    /*     li #spotify{
+      height: 161px;
+    } */
+    /*     ul{
+      padding: 0;
+      list-style-type: none;
+     } */
+    ul #spotify_youtube {
+        padding: none
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .fa-3x {
+        font-size: 1em !important;
+    }
+}
